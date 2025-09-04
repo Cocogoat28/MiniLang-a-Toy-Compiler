@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Interpreter + Machine Code</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #000435;
+            color: #fff;
+        }
+        h2 {
+            border-bottom: 2px solid #fff;
+            padding-bottom: 6px;
+            color: #fff;
+        }
+        form {
+            margin-bottom: 30px;
+        }
+        textarea, input[type="text"] {
+            width: 100%;
+            font-family: Consolas, monospace;
+            font-size: 1rem;
+            padding: 10px;
+            border: 1.5px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            resize: vertical;
+            transition: border-color 0.3s ease;
+        }
+        textarea:focus, input[type="text"]:focus {
+            border-color: #007acc;
+            outline: none;
+            background-color: #fff;
+        }
+        label {
+            font-weight: 600;
+            margin-top: 15px;
+            display: block;
+            color: #555;
+        }
+        input[type="submit"] {
+            background-color: #fff;
+            border: none;
+            color: white;
+            padding: 12px 25px;
+            font-size: 1.1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #fff;
+        }
+        pre {
+            background-color: #1e1e1e;
+            color: #000845;
+            padding: 15px;
+            border-radius: 5px;
+            max-height: 300px;
+            overflow-y: auto;
+            font-family: Consolas, monospace;
+            font-size: 0.95rem;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            box-shadow: inset 0 0 8px #00000088;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Interpreter + Machine Code</h1>
+
+    <div class="section">
+        <h2>Enter Code:</h2>
+        <form method="POST" autocomplete="off">
+            <textarea name="code" rows="12" placeholder="Type your code here...">{{ code }}</textarea>
+            <label for="inputs">Inputs (comma separated):</label>
+            <input type="text" id="inputs" name="inputs" placeholder="e.g. 5, hello, true" value="{{ inputs }}" />
+            <input type="submit" value="Run" />
+        </form>
+    </div>
+
+    <div class="section">
+        <h2>Output:</h2>
+        <pre>{{ output }}</pre>
+    </div>
+
+    <div class="section">
+        <h2>Machine Code (symbolic):</h2>
+        <pre>{{ machine_code }}</pre>
+    </div>
+</body>
+</html>
